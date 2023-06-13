@@ -82,7 +82,8 @@ const deleteEvent = async (req, res) => {
 };
 
 const getEvents = async (req, res) => {
-  const event = await eventModel.find();
+  const filter = req.query;
+  const event = await eventModel.find(filter);
   if (event !== null) {
     res.json({
       records: event,
